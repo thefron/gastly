@@ -1,14 +1,14 @@
 version: '3'
 services:
-  ui:
+  backend:
     build:
-      context: ./ui
+      context: ./backend
     depends_on:
       - db
     ports:
       - '8001:8001'
     volumes:
-      - ./ui:/app
+      - ./backend:/app
     environment:
       DATABASE_NAME: gastly
       DATABASE_USER: gastly
@@ -19,6 +19,8 @@ services:
     image: mysql
     volumes:
       - 'mysql:/var/lib/mysql'
+    ports:
+      - '3316:3306'
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
