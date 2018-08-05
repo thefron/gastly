@@ -15,6 +15,14 @@ services:
       DATABASE_PASSWORD: gastly-pw
       DATABASE_HOST: db
 
+  ui:
+    build:
+      context: ./ui
+    ports:
+      - '8081:8080'
+    volumes:
+      - ./ui:/app
+
   db:
     image: mysql
     volumes:
