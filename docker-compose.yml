@@ -1,5 +1,12 @@
 version: '3'
 services:
+  runner:
+    build:
+      context: ./runner
+    command: tail -f /dev/null
+    volumes:
+      - ./runner:/go/src/github.com/Buzzvil/gastly/runner
+
   backend:
     build:
       context: ./backend
