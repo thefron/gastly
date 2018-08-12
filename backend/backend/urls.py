@@ -15,11 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from api.resources import MetaRequestResource
-
-meta_request_resource = MetaRequestResource()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(meta_request_resource.urls)),
+    path('', include('migrations.urls'))
 ]
